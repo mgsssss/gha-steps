@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: gen-num1
-        run: echo "num=${{$RANDOM % 10 +1}}" >> $GITHUB_OUTPUT
+        run: echo "num=$(($RANDOM % 10 +1))" >> $GITHUB_OUTPUT
       - id: gen-num2
-        run: echo "num=${{$RANDOM % 10 +1}}" >> $GITHUB_OUTPUT
+        run: echo "num=$(($RANDOM % 10 +1))" >> $GITHUB_OUTPUT
       - run: echo $((${{steps.gen-num1.outputs.num}} + ${{steps.gen-num2.outputs.num}}))
