@@ -33,4 +33,11 @@ jobs:
       - id: flaky
         continue-on-error: true
         run: exit 1
-      - run: echo "I don't care!"
+      - run: echo "I don't care!"      
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - id: random
+        run: if [[ $(($RANDOM % 2)) == 0 ]]; then exit 0; else exit 1; fi
+      - if: ${{ alwats() }}
+        run: echo ${{ steps.come }}
