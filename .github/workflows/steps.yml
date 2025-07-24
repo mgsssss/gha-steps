@@ -15,3 +15,8 @@ jobs:
       - id: gen-num2
         run: echo "num=$(($RANDOM % 10 +1))" >> $GITHUB_OUTPUT
       - run: echo $((${{steps.gen-num1.outputs.num}} + ${{steps.gen-num2.outputs.num}}))
+      - run: echo $((${{steps.gen-num1.outputs.num}} - ${{steps.gen-num2.outputs.num}}))
+      - run: echo $((${{steps.gen-num1.outputs.num}} * ${{steps.gen-num2.outputs.num}}))
+      - run: echo $((${{steps.gen-num1.outputs.num}} / ${{steps.gen-num2.outputs.num}}))
+      # - run: echo $((${{steps.gen-num1.outputs.num}} + ${{steps.gen-num2.outputs.num}}))
+      # - run: echo $((${{steps.gen-num1.outputs.num}} + ${{steps.gen-num2.outputs.num}}))
